@@ -48,6 +48,12 @@ Download the [Training dataset](https://drive.google.com/file/d/1FpylY9uVOfdKw5v
 The training code will be added.
 
 ### Testing
+The student model (EdgeNeXt) is avaliable at ckpts folder. (**The winner model for this challenge**.)
+
+The teacher model (Swin-B) can be download from [Dropbox](https://www.dropbox.com/scl/fi/omso4imlippzkmzsq7pzw/Swin_B_checkpoint.pt?rlkey=fjcdrnnnm8uipahsg0d4ej4zs&st=rclvat38&dl=0), [Baidu Yun](https://pan.baidu.com/s/1bF2k0z0ZmPRQJ3YlO-AEGQ) (ap96)
+
+The teacher plus model (Swin-B) can be download from [Dropbox](https://www.dropbox.com/scl/fi/74abmcgi43t9e9rth012n/Swin_B_plus_checkpoint.pt?rlkey=m7whu8j4yvtkoiu3nscivfkkd&st=i3wia01p&dl=0), [Baidu Yun](https://pan.baidu.com/s/1z0iZw3T1X3Ul11WCzwbd9w) (qpiv).
+
 To test a trained model on your own images, use the `test.py` script:
 
 ```bash
@@ -55,11 +61,11 @@ python test.py [options]
 ```
 
 Available options:
-- `--model_name`: Model architecture to use (choices: 'FIQA_EdgeNeXt_XXS' or 'FIQA_Swin_B', default: 'FIQA_EdgeNeXt_XXS', which is the winner model for this challenge)
-- `--model_weights_file`: Path to model weights file (default: 'ckpts/FIQA_EdgeNeXt_XXS_checkpoint.pt')
-- `--image_size`: Input image size (default: 356 for FIQA_EdgeNeXt_XXS, 448 for FIQA_Swin_B)
-- `--image_file`: Path to input image file (default: 'demo_images/z06399.png')
-- `--gpu_ids`: GPU IDs to use (e.g., "0", "0,1", or "cpu" for CPU only, default: '0')
+- `--model_name`: Model architecture to use (choices: 'FIQA_EdgeNeXt_XXS' or 'FIQA_Swin_B')
+- `--model_weights_file`: Path to model weights file
+- `--image_size`: Input image size (356 for FIQA_EdgeNeXt_XXS and 448 for FIQA_Swin_B)
+- `--image_file`: Path to input image file 
+- `--gpu_ids`: GPU IDs to use (e.g., "0", "0,1", or "cpu" for CPU only)
 
 Example usage:
 ```bash
