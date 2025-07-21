@@ -2,6 +2,7 @@
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunwei925/Efficient-FIQA) [![](https://img.shields.io/github/stars/sunwei925/Efficient-FIQA)](https://github.com/sunwei925/Efficient-FIQA)
 [![Pytorch](https://img.shields.io/badge/PyTorch-1.13%2B-brightgree?logo=PyTorch)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/sunwei925/UIQA)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/sunwei925/Efficient-FIQA)
 <!-- [![arXiv](https://img.shields.io/badge/build-paper-red?logo=arXiv&label=arXiv)](https://arxiv.org/abs/2409.00749) -->
 
 🏆 🥇 **Winner solution for [ICCV VQualA 2025 Face Image Quality Assessment Challenge](https://codalab.lisn.upsaclay.fr/competitions/23017) at the [VQualA 2025](https://vquala.github.io/) workshop @ ICCV 2025** 
@@ -11,7 +12,7 @@ Official Code for **Efficient Face Image Quality Assessment via Self-training an
 ## Introduction
 > **Face image quality assessment (FIQA)** is essential for various face-related applications. Although FIQA has been extensively studied and achieved significant progress, the computational complexity of FIQA algorithms remains a key concern for ensuring scalability and practical deployment in real-world systems. In this paper, we aim to develop a computationally efficient FIQA method that can be easily deployed in real-world applications. Specifically, our method consists of two stages: **training a powerful teacher model** and **distilling a lightweight student model from it**. To build a strong teacher model, we adopt a **self-training strategy** to improve its capacity. We first *train the teacher model using labeled face images, then use it to generate pseudo-labels for a set of unlabeled images*. These pseudo-labeled samples are used in two ways: *(1) to distill knowledge into the student model, and (2) to combine with the original labeled images to further enhance the teacher model through self-training*. The enhanced teacher model is used to further pseudo-label another set of unlabeled images for distilling the student models. The student model is trained using *a combination of labeled images, pseudo-labeled images from the original teacher model, and pseudo-labeled images from the enhanced teacher model*. Experimental results demonstrate that our student model achieves comparable performance to the teacher model with an extremely low computational overhead. Moreover, **our method achieved first place in the ICCV VQualA 2025 FIQA Challenge.**
 
-#### Performance on ECCV AIM 2024 UHD-IQA Challenge
+#### Performance on ICCV VQualA 2025 FIQA Challenge
 | **Rank** | **Team**                   | **Score** | **GFLOPs** | **Params (M)** |
 |:--------:|----------------------------|:---------:|:----------:|:--------------:|
 | 1        | **ECNU-SJTU VQA Team (Ours)**  | **0.9664**    | **0.3313**     | **1.1796**         |
@@ -34,7 +35,7 @@ torch(>=1.13), timm
 ```
 - Create a new environment
 ```
-conda create -n UIQA python=3.9
+conda create -n EfficientFIQA python=3.9
 conda activate EfficientFIQA 
 conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia # this command install pytorch version of 2.40, you can install pytorch >=1.13
 pip install timm
@@ -92,6 +93,10 @@ python test.py \
 --image_file demo_images/z06399.png \
 --image_size 448 \
 --gpu_ids 0
+```
 
 The script will output the quality score for the input image, with higher scores indicating better image quality.
+
+### Online Demo
+Try our online demo on Hugging Face Spaces: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/sunwei925/Efficient-FIQA)
 
