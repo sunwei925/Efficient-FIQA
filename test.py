@@ -96,7 +96,7 @@ def parse_args():
                       help='Model architecture to use (FIQA_EdgeNeXt_XXS or FIQA_Swin_B)')
     parser.add_argument('--model_weights_file', type=str, default='ckpts/checkpoint.pt',
                       help='Path to model weights file')
-    parser.add_argument('--image_size', type=int, default=356,
+    parser.add_argument('--image_size', type=int, default=352,
                       help='Input image size')
     parser.add_argument('--image_file', type=str, default='demo_images/z06399.png',
                       help='Path to input image file')

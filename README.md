@@ -64,7 +64,7 @@ python test.py [options]
 Available options:
 - `--model_name`: Model architecture to use (choices: 'FIQA_EdgeNeXt_XXS' or 'FIQA_Swin_B')
 - `--model_weights_file`: Path to model weights file
-- `--image_size`: Input image size (356 for FIQA_EdgeNeXt_XXS and 448 for FIQA_Swin_B)
+- `--image_size`: Input image size (352 for FIQA_EdgeNeXt_XXS and 448 for FIQA_Swin_B)
 - `--image_file`: Path to input image file 
 - `--gpu_ids`: GPU IDs to use (e.g., "0", "0,1", or "cpu" for CPU only)
 
@@ -75,7 +75,7 @@ python test.py \
 --model_name FIQA_EdgeNeXt_XXS \
 --model_weights_file ckpts/EdgeNeXt_XXS_checkpoint.pt \
 --image_file demo_images/z06399.png \
---image_size 356 \
+--image_size 352 \
 --gpu_ids 0
 
 # Test with EdgeNeXt-XXS model on CPU
@@ -83,7 +83,7 @@ python test.py \
 --model_name FIQA_EdgeNeXt_XXS \
 --model_weights_file ckpts/EdgeNeXt_XXS_checkpoint.pt \
 --image_file demo_images/z06399.png \
---image_size 356 \
+--image_size 352 \
 --gpu_ids cpu
 
 # Test with Swin_B model on GPU
