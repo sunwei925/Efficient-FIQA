@@ -46,7 +46,54 @@ pip install timm
 Download the [Training dataset](https://drive.google.com/file/d/1FpylY9uVOfdKw5vI6UduMviUMIiDfK-7/view), [Ground truth scores](https://drive.google.com/file/d/1UQ8m4gIPg5X2LC3ugifWGhul0LP86_9b/view), and [Validation dataset](https://drive.google.com/file/d/1UM8IgjFjf6O3hIwhVqfFaLkHMjtMOvK2/view).
 
 ### Training
-The training code will be added.
+Step1: Train the teacher model
+1. First, modify the paths in `config_SwinB.py`:
+```python
+# Data related
+data_dir: str = '/path/to/your/training/images'  # Path to your training images
+csv_path: str = 'data_file/train.csv'  # Path to your training labels
+
+# Model related
+model_save_dir: str = '/path/to/save/model'  # Directory to save model checkpoints
+```
+
+2. Start training:
+```bash
+python train_teacher_model.py
+```
+
+Step2: Train the student model
+1. First, we need to use the teacher model to label a set of unlabeled images. Since we do not have the image credits that images used in the paper, we take [GFIQA-20K](https://database.mmsp-kn.de/gfiqa-20k-database.html) as an example.
+
+First, modify the paths in `test_unlabeled_images.py`:
+```python
+# Image paths
+image_dir = '/path/to/GFIQA/images'  # Directory containing GFIQA-20K images
+output_csv = 'data_file/gfiqa_results.csv'  # Path to save the prediction results
+```
+
+Then run:
+```bash
+python test_unlabeled_images.py
+```
+
+2. Train the student model with GFIQA dataset
+First, modify the paths in `config_Edgenet.py`:
+```python
+# Data related
+data_dir: str = '/path/to/original/training/images'  # Original training data directory
+gfiqa_data_dir: str = '/path/to/GFIQA/images'  # GFIQA dataset directory
+csv_path: str = 'data_file/train.csv'  # Original training labels
+gfiqa_csv_path: str = 'data_file/gfiqa_results.csv'  # Generated GFIQA predictions
+
+# Model related
+model_save_dir: str = '/path/to/save/student/model'  # Directory to save model checkpoints
+```
+
+Then start training:
+```bash
+python train_student_model.py
+```
 
 ### Testing
 The student model (EdgeNeXt) is avaliable at ckpts folder. (**The winner model for this challenge**.)
