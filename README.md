@@ -63,9 +63,9 @@ python train_teacher_model.py
 ```
 
 Step2: Train the student model
-1. First, we need to use the teacher model to label a set of unlabeled images. Since we do not have the image credits that images used in the paper, we take [GFIQA-20K](https://database.mmsp-kn.de/gfiqa-20k-database.html) as an example.
+1. First, the teacher model is employed to generate labels for a set of unlabeled images (for further training teacher model or student model). As we do not possess the copyrights for the images used in the original paper, we use [GFIQA-20K](https://database.mmsp-kn.de/gfiqa-20k-database.html) as a representative example.
 
-First, modify the paths in `test_unlabeled_images.py`:
+Modify the paths in `test_unlabeled_images.py`:
 ```python
 # Image paths
 image_dir = '/path/to/GFIQA/images'  # Directory containing GFIQA-20K images
@@ -77,7 +77,7 @@ Then run:
 python test_unlabeled_images.py
 ```
 
-2. Train the student model with GFIQA dataset
+2. Train the student model (or teacher plus model) with GFIQA dataset
 First, modify the paths in `config_Edgenet.py`:
 ```python
 # Data related
@@ -147,3 +147,15 @@ The script will output the quality score for the input image, with higher scores
 ### Online Demo
 Try our online demo on Hugging Face Spaces: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/sunwei925/Efficient-FIQA)
 
+## Citation
+**If you find this code is useful for  your research, please cite**:
+
+```latex
+@inproceedings{sun2025efficient,
+  title={Efficient Face Image Quality Assessment via Self-training and Knowledge Distillation},
+  author={Sun, Wei and Zhang, Weixia and Cao, Linhan and Jia, Jun and Zhu, Xiangyang and Zhu, Dandan and Min, Xiongkuo and Zhai, Guangtao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision Workshops},
+  pages={1-9},  
+  year={2025}
+}
+```
