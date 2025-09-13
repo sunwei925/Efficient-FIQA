@@ -41,11 +41,11 @@ class Swin_b_IQA(nn.Module):
 
 class FIQA_Swin_B(torch.nn.Module):
     # pretrained_path: use the pretrained model on IQA/VQA datasets to initialize the model
-    def __init__(self, pretrained_path):
+    def __init__(self, pretrained_path, is_pretrained=False):
         
         super(FIQA_Swin_B, self).__init__()
 
-        swin_b = Swin_b_IQA()
+        swin_b = Swin_b_IQA(is_pretrained)
         if pretrained_path!=None:
             print('load overall model')
             swin_b.load_state_dict(torch.load(pretrained_path))

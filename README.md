@@ -169,9 +169,9 @@ python train_student_model.py
 
 ### Pre-trained Models
 
-- **Student Model (Winner)**: [EdgeNeXt-XXS](https://github.com/sunwei925/Efficient-FIQA/releases/download/v1.0/EdgeNeXt_XXS_checkpoint.pt)
-- **Teacher Model**: [Swin-B](https://www.dropbox.com/scl/fi/omso4imlippzkmzsq7pzw/Swin_B_checkpoint.pt)
-- **Teacher+ Model**: [Swin-B+](https://www.dropbox.com/scl/fi/74abmcgi43t9e9rth012n/Swin_B_plus_checkpoint.pt)
+- **Student Model (Winner)**: [EdgeNeXt-XXS](https://github.com/sunwei925/Efficient-FIQA/tree/main/ckpts)
+- **Teacher Model**: [Swin-B](https://www.dropbox.com/scl/fi/omso4imlippzkmzsq7pzw/Swin_B_checkpoint.pt?rlkey=fjcdrnnnm8uipahsg0d4ej4zs&st=sk0yrvkc&dl=0)
+- **Teacher+ Model**: [Swin-B+](https://www.dropbox.com/scl/fi/74abmcgi43t9e9rth012n/Swin_B_plus_checkpoint.pt?rlkey=m7whu8j4yvtkoiu3nscivfkkd&st=14kzulp7&dl=0)
 
 
 ### Test on your images
